@@ -68,7 +68,7 @@
        </select>
 
        <input type="number" value="1">
-       <button class="normal">Add to cart</button>
+       <button class="normal"  onclick="addToCart('f2.jpg', 'Cool Hoodie', 1500)">Add to cart</button>
        <h4>Product details</h4>
        <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus repellendus dolorum illo accusamus nesciunt delectus voluptate nam provident, laborum asperiores. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse quo temporibus ratione fugit, dolorum sint tempora iure rem maiores voluptate distinctio itaque debitis optio sit laudantium ad natus eveniet consequatur!</span>
       </div>
@@ -234,6 +234,24 @@
         smallimg[3].onclick = function(){
         mainimg.src = smallimg[3].src;
       }
+
+     
+       function addToCart(image, name, price) {
+     let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Check if item already exists
+    let existing = cart.find(item => item.name === name);
+
+    if (existing) {
+      existing.quantity += 1;
+    } else {
+      cart.push({ image, name, price, quantity: 2 });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert("Item added to cart!");
+
+  }
     </script>
     <script src="script.js"></script>
   </body>
