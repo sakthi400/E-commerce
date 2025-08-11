@@ -90,7 +90,7 @@ button.white {
   #header a img{
     width: 150px;
     height: 30px;
-    object-fit: cover;
+    object-fit: contain;
     cursor: pointer;
 
   }
